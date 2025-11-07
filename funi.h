@@ -524,6 +524,18 @@ using FuzzTestFunc = void (*)(void);
 
 void register_funi_fuzz_test(FuzzTestFunc func);
 
+#ifdef FUNI_TEST_DRIVER
+#undef FUNI_TEST_DRIVER
+#endif
+
+#ifdef FUNI_TEST_RUNNER
+#undef FUNI_TEST_RUNNER
+#endif
+
+#ifdef FUNI_INIT
+#undef FUNI_INIT
+#endif
+
 #define FUNI_TEST_DRIVER(test_group, test_name) void test_group##_##test_name##_fuzz_one()
 #define FUNI_PRE_TEST_HOOK(test_group, test_name) \
     FUNI_TEST_DRIVER(test_group, test_name); \
