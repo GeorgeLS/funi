@@ -88,7 +88,7 @@ static int add(int x, int y) {
     return x + y;
 }
 
-FUNI_UNIT(calculator, test_add) {
+FUNI_TEST(calculator, test_add) {
     // Use 1 as the unit test value or a random value between
     // uint8_t::MIN and uint8_t::MAX when fuzzing
     int x = I8(1);
@@ -143,7 +143,8 @@ static int add(int x, int y) {
     return x + y;
 }
 
-TEST(calculator, test_add) {
+// This doesn't remain as `FUNI_TEST` but expands to some magic stuff.
+FUNI_TEST(calculator, test_add) {
     uint8_t x = __FDP->ConsumeIntegral<uint8_t>();
     uint8_t y = __FDP->ConsumeIntegral<uint8_t>();
 
@@ -159,7 +160,7 @@ int main(int argc, char** argv) {
 Another example using the `V` and `C` macro with the unit test is:
 
 ```cpp
-FUNI_UNIT(calculator, test_add) {
+FUNI_TEST(calculator, test_add) {
     // Use 1 as the unit test value or a random value between
     // 2 and 5 when fuzzing
     int x = I8(V(1), C(2, 5));
