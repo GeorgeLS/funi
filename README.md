@@ -175,3 +175,7 @@ FUNI_UNIT(calculator, test_add) {
 # DISCLAIMER
 
 This is still a work in progress. For example, the `FUNI_ASSERT_EQ` macro is not yet implemented.
+
+Also, I'm not suggesting that this some good practice or that you should use it in production code.
+
+It's just an idea that I had and I'm still exploring!
